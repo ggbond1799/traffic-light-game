@@ -1,4 +1,12 @@
+let current = 0;
+const lights = document.querySelectorAll('.light');
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("游戏逻辑将在这里运行（构建版本需 React 工具打包）");
-});
+function changeLight() {
+  lights.forEach((light, index) => {
+    light.classList.remove('active');
+    if (index === current) {
+      light.classList.add('active');
+    }
+  });
+  current = (current + 1) % lights.length;
+}
